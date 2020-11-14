@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,20 @@ WSGI_APPLICATION = 'tidder.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' : 'django.db.backends.mysql',
+        'USER' : 'root',
+        'PASSWORD':'',
+        'NAME' : 'tidder',
+        'HOST' : 'localhost',
+        'PORT' : '3306',
+        'OPTIONS':{
+            'init_command':"SET sql_mode = 'STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+        'TEST':{
+            'CHARSET': 'utf0mb4',
+            'COLLATION': 'utf8mb4_unicode_ci',
+        }
     }
 }
 
