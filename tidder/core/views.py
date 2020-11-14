@@ -5,7 +5,7 @@ from rest_framework import generics, authentication, permissions, viewsets, mixi
 from .models import *
 
 
-class PostViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+class PostViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.CreateModelMixin,mixins.UpdateModelMixin):
     serializer_class = serializers.PostSerializer
     queryset = Post.objects.all()
 

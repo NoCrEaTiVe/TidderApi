@@ -19,5 +19,6 @@ from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts',PostViewSet.as_view({'get':'list'}),name='posts'),
+    path('posts',PostViewSet.as_view({'get':'list','post':'create','patch':'update'}),name='posts'),
+
 ]
